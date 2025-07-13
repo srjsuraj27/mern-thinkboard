@@ -21,10 +21,16 @@ const CreatePage = () => {
 
     setLoading(true);
     try {
-      await api.post("/notes", {
-        title,
-        content,
-      });
+      await api.post(
+        "/notes",
+        {
+          title,
+          content,
+        },
+        {
+          withCredentials: true,
+        }
+      );
       toast.success("Note created successfully!");
       navigate("/");
     } catch (error) {
