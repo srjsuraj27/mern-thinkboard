@@ -16,7 +16,7 @@ const PORT = process.env.PORT || 5001;
 const corsConfig = {
   origin:
     process.env.NODE_ENV === "production"
-      ? process.env.Client_URL
+      ? "https://mern-thinkboard-frontend-opal.vercel.app/"
       : "http://localhost:5173",
   credentials: true,
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"], // include OPTIONS
