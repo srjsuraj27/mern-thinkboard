@@ -1,7 +1,6 @@
 import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
-import serverless from "serverless-http";
 
 import notesRoutes from "./routes/notesRoutes.js";
 import { connectDB } from "./config/db.js";
@@ -17,10 +16,9 @@ const PORT = process.env.PORT || 5001;
 const corsConfig = {
   origin:
     process.env.NODE_ENV === "production"
-      ? "https://mern-thinkboard-frontend-opal.vercel.app/"
+      ? "https://mern-thinkboard-frontend-opal.vercel.app"
       : "http://localhost:5173",
   credentials: true,
-  allowedHeaders: ["Content-Type"],
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"], // include OPTIONS
 };
 
@@ -36,5 +34,3 @@ connectDB().then(() => {
     console.log("Server started on PORT:", PORT);
   });
 });
-
-export const handler = serverless(app);
